@@ -19,15 +19,17 @@ app.get('/', (req, res) => {
 
 app.post('/validate', async (req, res) => {
     const { guess } = req.body;
-    if (guess === process.env.SEKRET_RESPONSE) {
+    if (guess.toLowerCase() === process.env.SEKRET_RESPONSE) {
         res.json({
             status: 'success',
             message: 'Congrats! You solved the weekly riddle!',
+            answer: process.env.SEKRET_RESPONSE
         });
     } else {
         res.json({
             status: 'failure',
             message: 'Wrong answer! Try again!',
+            answer: guess
         });
     }
 });
