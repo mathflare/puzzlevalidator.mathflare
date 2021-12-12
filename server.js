@@ -22,7 +22,7 @@ app.post('/validate', async (req, res) => {
     if (guess === process.env.SEKRET_RESPONSE) {
         res.json({
             status: 'success',
-            message: 'Congrats! You solved the weakly riddle!',
+            message: 'Congrats! You solved the weekly riddle!',
         });
     } else {
         res.json({
